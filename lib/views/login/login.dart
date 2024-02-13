@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/views/login/widgets/social_media.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
 
@@ -131,41 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 kheight(20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/google.png',
-                      height: size.width / 12,
-                      width: size.width / 12,
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/linkedin.png',
-                      height: size.width / 10,
-                      width: size.width / 10,
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/facebook.jpg',
-                      height: size.width / 10,
-                      width: size.width / 10,
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/insta.png',
-                      height: size.width / 12,
-                      width: size.width / 10,
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/whatsapp.png',
-                      height: size.width / 10,
-                      width: size.width / 10,
-                      fit: BoxFit.fill,
-                    )
-                  ],
-                ),
+                SocialMediaHandlers(size: size),
                 kheight(20),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -237,3 +204,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
