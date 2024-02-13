@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promilo/views/login/widgets/separator.dart';
 import 'package:promilo/views/login/widgets/social_media.dart';
+import 'package:promilo/views/login/widgets/terms_privacy.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
 
@@ -124,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 kheight(10),
-                Separator(),
+                const Separator(),
                 kheight(20),
                 SocialMediaHandlers(size: size),
                 kheight(20),
@@ -150,38 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 kheight(10),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'By continuing you are agree to',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: greyColor,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "promilo's  ",
-                          style: TextStyle(
-                            color: greyColor,
-                            fontSize: 16,
-                          ),
-                          children: const [
-                            TextSpan(
-                              text: 'Terms of use & privacy policy',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const TermsAndPrivacy(),
               ],
             ),
           ),
@@ -190,3 +160,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
