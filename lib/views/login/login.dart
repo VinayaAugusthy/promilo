@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/views/login/widgets/separator.dart';
 import 'package:promilo/views/login/widgets/social_media.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
@@ -123,14 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 kheight(10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    divider(),
-                    const Text('Or'),
-                    divider(),
-                  ],
-                ),
+                Separator(),
                 kheight(20),
                 SocialMediaHandlers(size: size),
                 kheight(20),
@@ -195,13 +189,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-  Expanded divider() {
-    return const Expanded(
-      child: Divider(
-        color: Color.fromARGB(78, 158, 158, 158),
-      ),
-    );
-  }
 }
-
