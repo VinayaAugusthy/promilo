@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/controllers/login/login.dart';
 import 'package:promilo/views/login/widgets/separator.dart';
 import 'package:promilo/views/login/widgets/social_media.dart';
 import 'package:promilo/views/login/widgets/terms_privacy.dart';
@@ -50,9 +51,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'Hi,Welcome Back!',
                     style: TextStyle(
-                        fontSize: size.width / 16,
-                        fontWeight: FontWeight.bold,
-                        color: primary),
+                      fontSize: size.width / 16,
+                      fontWeight: FontWeight.bold,
+                      color: primary,
+                    ),
                   ),
                 ),
                 kheight(size.height / 30),
@@ -69,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter email or mob no',
                   ),
+                  validator: validateEmail(emailController.text),
                 ),
                 kheight(10),
                 Row(
@@ -99,6 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter Password',
                   ),
+                  validator: validatePassword(passwordController.text),
                 ),
                 kheight(10),
                 Row(
@@ -160,5 +164,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
