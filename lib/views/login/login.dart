@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:promilo/views/widgets/constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,9 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: size.height / 20,
-                ),
+                kheight(size.height / 20),
                 Center(
                   child: Text(
                     'Hi,Welcome Back!',
@@ -54,18 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: size.height / 30,
-                ),
+                kheight(size.height / 30),
                 const Text(
                   'Please Sign in to continue',
                   style: TextStyle(
                     fontSize: 18,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -75,9 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: 'Enter email or mob no',
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 Row(
                   children: [
                     SizedBox(
@@ -86,18 +78,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Text('Sign In With OTP'),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 const Text(
                   'Password',
                   style: TextStyle(
                     fontSize: 18,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 TextFormField(
                   controller: passwordController,
                   decoration: InputDecoration(
@@ -107,9 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: 'Enter Password',
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -126,9 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 SizedBox(
                   width: size.width,
                   child: ElevatedButton(
@@ -136,9 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text('Submit'),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -158,9 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                kheight(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -196,9 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                kheight(20),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -206,9 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text('Don\'t have an account?'),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                kheight(10),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -216,9 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text('Sign Up'),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                kheight(10),
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -252,4 +226,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+ 
 }
