@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -46,17 +47,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'Hi,Welcome Back!',
                     style: TextStyle(
-                      fontSize: size.width / 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: size.width / 16,
+                        fontWeight: FontWeight.bold,
+                        color: primary),
                   ),
                 ),
                 kheight(size.height / 30),
-                const Text(
+                Text(
                   'Please Sign in to continue',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
+                  style: TextStyle(fontSize: 18, color: primary),
                 ),
                 kheight(10),
                 TextFormField(
@@ -74,14 +73,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       width: size.width / 2,
                     ),
-                    const Text('Sign In With OTP'),
+                    Text(
+                      'Sign In With OTP',
+                      style: boldPrimaryText(),
+                    ),
                   ],
                 ),
                 kheight(10),
-                const Text(
+                Text(
                   'Password',
                   style: TextStyle(
                     fontSize: 18,
+                    color: primary,
                   ),
                 ),
                 kheight(10),
@@ -104,10 +107,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Text('Remember me'),
                       ],
                     ),
-                    const Text(
+                    Text(
                       'Forget Password',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: boldPrimaryText(),
                     )
                   ],
                 ),
@@ -120,23 +122,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 kheight(10),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Divider(
-                        color: Color.fromARGB(78, 158, 158, 158),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text('Or'),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: Color.fromARGB(78, 158, 158, 158),
-                      ),
-                    ),
+                    divider(),
+                    const Text('Or'),
+                    divider(),
                   ],
                 ),
                 kheight(20),
@@ -145,8 +136,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Image.asset(
                       'assets/images/google.png',
-                      height: size.width / 10,
-                      width: size.width / 10,
+                      height: size.width / 12,
+                      width: size.width / 12,
                       fit: BoxFit.fill,
                     ),
                     Image.asset(
@@ -163,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Image.asset(
                       'assets/images/insta.png',
-                      height: size.width / 10,
+                      height: size.width / 12,
                       width: size.width / 10,
                       fit: BoxFit.fill,
                     ),
@@ -184,11 +175,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 kheight(10),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Login Here'),
-                    Text('Sign Up'),
+                    Text(
+                      'Login Here',
+                      style: boldPrimaryText(),
+                    ),
+                    Text(
+                      'Sign Up',
+                      style: boldPrimaryText(),
+                    ),
                   ],
                 ),
                 kheight(10),
@@ -196,15 +193,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         'By continuing you are agree to',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: greyColor,
+                        ),
                       ),
                       RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           text: "promilo's  ",
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                          children: [
+                          style: TextStyle(
+                            color: greyColor,
+                            fontSize: 16,
+                          ),
+                          children: const [
                             TextSpan(
                               text: 'Terms of use & privacy policy',
                               style: TextStyle(
@@ -226,5 +229,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
- 
+  Expanded divider() {
+    return const Expanded(
+      child: Divider(
+        color: Color.fromARGB(78, 158, 158, 158),
+      ),
+    );
+  }
 }
