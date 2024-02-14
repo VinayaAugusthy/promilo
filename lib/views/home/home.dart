@@ -6,6 +6,8 @@ import 'package:promilo/views/home/widgets/search_bar.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
 
+import '../widgets/bottom_bar.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -30,7 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(size.width / 16),
+        padding: EdgeInsets.only(
+          left: size.width / 16,
+          right: size.width / 16,
+          top: size.width / 16,
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,9 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
-
-
-
