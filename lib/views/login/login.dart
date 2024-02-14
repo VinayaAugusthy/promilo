@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/controllers/login/login.dart';
 import 'package:promilo/controllers/login/login_validation.dart';
 import 'package:promilo/views/login/widgets/separator.dart';
 import 'package:promilo/views/login/widgets/social_media.dart';
@@ -123,9 +124,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 kheight(10),
                 SizedBox(
                   width: size.width,
-                  child: ElevatedButton(onPressed: () {
-                    
-                  },
+                  child: ElevatedButton(
+                    onPressed: () {
+                      login(emailController.text, passwordController.text);
+                    },
                     // onPressed: isSubmitEnabled ? submitForm : null,
                     child: const Text('Submit'),
                   ),
