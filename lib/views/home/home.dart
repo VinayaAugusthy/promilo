@@ -1,9 +1,10 @@
 import 'dart:ui';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:promilo/views/home/widgets/authour.dart';
 import 'package:promilo/views/home/widgets/carousels.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
 import 'package:promilo/views/widgets/colors.dart';
@@ -22,24 +23,26 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Individual Meetup',
-            style: boldPrimaryText(),
+      appBar: AppBar(
+        title: Text(
+          'Individual Meetup',
+          style: boldPrimaryText(),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(size.width / 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SearchBarWidget(size: size),
+              kheight(20),
+              MeetingCarousels(size: size),
+              kheight(20),
+              AuthourCard(size: size)
+            ],
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(size.width / 16),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SearchBarWidget(size: size),
-                kheight(20),
-                MeetingCarousels(size: size)
-              ],
-            ),
-          ),
-        ));
+      ),
+    );
   }
 }
-
