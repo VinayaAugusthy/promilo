@@ -1,9 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:promilo/views/home/widgets/authour.dart';
 import 'package:promilo/views/home/widgets/carousels.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
@@ -26,19 +21,43 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(
           'Individual Meetup',
-          style: boldPrimaryText(),
+          style: TextStyle(
+            fontSize: 24,
+            color: primary,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: Padding(
         padding: EdgeInsets.all(size.width / 16),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SearchBarWidget(size: size),
               kheight(20),
               MeetingCarousels(size: size),
               kheight(20),
-              AuthourCard(size: size)
+              Text(
+                'Trending Popular People',
+                style: boldPrimaryText(),
+              ),
+              kheight(10),
+              SizedBox(
+                height: size.height / 4,
+                // width: size.width,
+                child: ListView.builder(
+                  // shrinkWrap: true,
+                  itemBuilder: (context, index) => AuthourCard(size: size),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                ),
+              ),
+              kheight(20),
+              Text(
+                'Top Trending Meetups',
+                style: boldPrimaryText(),
+              ),
             ],
           ),
         ),
