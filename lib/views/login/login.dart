@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: size.width,
                   child: ElevatedButton(
                     onPressed: () {
-                      login(emailController.text, passwordController.text);
+                      login(emailController.text.toString(), passwordController.text.toString(),context);
                     },
                     // onPressed: isSubmitEnabled ? submitForm : null,
                     child: const Text('Submit'),

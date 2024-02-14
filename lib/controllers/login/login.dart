@@ -1,31 +1,41 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
+import 'package:promilo/views/home/home.dart';
 
-login(String email, String password) async {
-  final loginEndpoinnt =
-      Uri.parse(": https://apiv2stg.promilo.com/user/oauth/token");
+login(String email, String password, BuildContext context) async {
+  final loginEndpoint =
+      Uri.parse('https://apiv2stg.promilo.com/user/oauth/token');
+
   final hashedPassword = sha256.convert(utf8.encode(password)).toString();
   final body = {
     'username': email,
     'password': hashedPassword,
-    'grant_type': password,
+    'grant_type': 'password',
   };
+
   final headers = {
     'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg==',
   };
   try {
     final response =
-        await http.post(loginEndpoinnt, body: body, headers: headers);
+        await http.post(loginEndpoint, body: body, headers: headers);
+    print(response.statusCode);
     if (response.statusCode == 200) {
-      final data = json.decode(response.body);
+      final data = json.encode(response.body);
       print(data.toString());
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ));
     } else {
       print('Invalid ID and password');
     }
   } catch (e) {
-    print('Error during login:$Error');
+    print('Error during login:$e');
   }
 }
