@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:promilo/views/home/widgets/authour.dart';
 import 'package:promilo/views/home/widgets/carousels.dart';
-import 'package:promilo/views/home/widgets/meetups.dart';
+import 'package:promilo/views/home/widgets/meetup.dart';
+import 'package:promilo/views/home/widgets/popular_people_widget.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
@@ -44,30 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: boldPrimaryText(),
               ),
               kheight(10),
-              SizedBox(
-                height: size.height / 4,
-                child: ListView.builder(
-                  itemBuilder: (context, index) => AuthourCard(size: size),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                ),
-              ),
+              PopularPeopleWidget(size: size),
               kheight(20),
               Text(
                 'Top Trending Meetups',
                 style: boldPrimaryText(),
               ),
-              SizedBox(
-                height: size.height / 4,
-                child: ListView.builder(
-                  itemBuilder: (context, index) => TrendingMeetups(
-                    size: size,
-                    index: index,
-                  ),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                ),
-              ),
+              MeetupWidget(size: size),
             ],
           ),
         ),
@@ -75,3 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
+
