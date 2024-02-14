@@ -1,4 +1,10 @@
+import 'dart:ui';
+
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:promilo/views/home/widgets/carousels.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
@@ -27,7 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SearchBarWidget(size: size)
+                SearchBarWidget(size: size),
+                kheight(20),
+                MeetingCarousels(size: size)
               ],
             ),
           ),
