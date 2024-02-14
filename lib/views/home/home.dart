@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promilo/views/home/widgets/authour.dart';
 import 'package:promilo/views/home/widgets/carousels.dart';
+import 'package:promilo/views/home/widgets/meetups.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
@@ -45,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               kheight(10),
               SizedBox(
                 height: size.height / 4,
-                // width: size.width,
                 child: ListView.builder(
-                  // shrinkWrap: true,
                   itemBuilder: (context, index) => AuthourCard(size: size),
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
@@ -57,6 +56,17 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'Top Trending Meetups',
                 style: boldPrimaryText(),
+              ),
+              SizedBox(
+                height: size.height / 4,
+                child: ListView.builder(
+                  itemBuilder: (context, index) => TrendingMeetups(
+                    size: size,
+                    index: index,
+                  ),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                ),
               ),
             ],
           ),
