@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:promilo/views/widgets/colors.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/colors.dart';
+import 'package:promilo/models/core/constants.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ImageContainer extends StatelessWidget {

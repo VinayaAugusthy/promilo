@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/constants.dart';
 
 class MeetingCarousels extends StatelessWidget {
   const MeetingCarousels({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:promilo/views/widgets/colors.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/colors.dart';
+import 'package:promilo/models/core/constants.dart';
 
 class Details extends StatelessWidget {
   const Details({

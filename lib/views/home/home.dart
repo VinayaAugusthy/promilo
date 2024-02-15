@@ -3,8 +3,8 @@ import 'package:promilo/views/home/widgets/carousels.dart';
 import 'package:promilo/views/home/widgets/meetup.dart';
 import 'package:promilo/views/home/widgets/popular_people_widget.dart';
 import 'package:promilo/views/home/widgets/search_bar.dart';
-import 'package:promilo/views/widgets/colors.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/colors.dart';
+import 'package:promilo/models/core/constants.dart';
 
 import '../widgets/bottom_bar.dart';
 

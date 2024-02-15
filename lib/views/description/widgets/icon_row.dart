@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:promilo/views/widgets/colors.dart';
+import 'package:promilo/models/core/colors.dart';
 
 class IconRow extends StatelessWidget {
   const IconRow({

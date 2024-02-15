@@ -4,8 +4,8 @@ import 'package:promilo/controllers/login/login_validation.dart';
 import 'package:promilo/views/login/widgets/separator.dart';
 import 'package:promilo/views/login/widgets/social_media.dart';
 import 'package:promilo/views/login/widgets/terms_privacy.dart';
-import 'package:promilo/views/widgets/colors.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/colors.dart';
+import 'package:promilo/models/core/constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,18 +19,14 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
 
   bool isSubmitEnabled = false;
+  String _textFieldValue = '';
+  // void checkSubmitButton(String email,String pa) {
+  //     _textFieldValue = value;
+  //     isSubmitEnabled = value.isNotEmpty;
+  //   setState(() {
 
-  void checkSubmitButton() {
-    setState(() {
-      isSubmitEnabled =
-          emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
-    });
-  }
-
-  void submitForm() {
-    print('Email: ${emailController.text}');
-    print('Password: ${passwordController.text}');
-  }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 kheight(10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SizedBox(
-                      width: size.width / 2,
-                    ),
                     Text(
                       'Sign In With OTP',
                       style: boldPrimaryText(),
@@ -122,16 +116,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 kheight(10),
-                SizedBox(
-                  width: size.width,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      login(emailController.text.toString(), passwordController.text.toString(),context);
-                    },
-                    // onPressed: isSubmitEnabled ? submitForm : null,
-                    child: const Text('Submit'),
-                  ),
-                ),
+                isSubmitEnabled
+                    ? SizedBox(
+                        width: size.width,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(primary),
+                          ),
+                          onPressed: () {
+                            login(emailController.text.toString(),
+                                passwordController.text.toString(), context);
+                          },
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        width: size.width,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                side: BorderSide(color: primary),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            backgroundColor:
+                                MaterialStateProperty.all(greyColor),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                 kheight(10),
                 const Separator(),
                 kheight(20),

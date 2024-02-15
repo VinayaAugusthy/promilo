@@ -3,8 +3,8 @@ import 'package:promilo/views/description/widgets/details.dart';
 import 'package:promilo/views/description/widgets/icon_row.dart';
 import 'package:promilo/views/description/widgets/image_container.dart';
 import 'package:promilo/views/widgets/bottom_bar.dart';
-import 'package:promilo/views/widgets/colors.dart';
-import 'package:promilo/views/widgets/constants.dart';
+import 'package:promilo/models/core/colors.dart';
+import 'package:promilo/models/core/constants.dart';
 
 class Description extends StatefulWidget {
   const Description({super.key});
