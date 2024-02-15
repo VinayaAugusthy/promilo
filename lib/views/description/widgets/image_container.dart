@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:promilo/views/widgets/colors.dart';
 import 'package:promilo/views/widgets/constants.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
@@ -23,8 +24,7 @@ class ImageContainer extends StatelessWidget {
         children: [
           CarouselSlider.builder(
             itemCount: carouselItems.length,
-            itemBuilder:
-                (BuildContext context, int index, int realIndex) {
+            itemBuilder: (BuildContext context, int index, int realIndex) {
               return Image.network(
                 carouselItems[index],
                 fit: BoxFit.cover,
@@ -72,7 +72,12 @@ class ImageContainer extends StatelessWidget {
                   ),
                   IconButton(
                     iconSize: size.width / 22,
-                    onPressed: () {},
+                    onPressed: () async {
+                      Share.share(
+                        "Share content here (e.g., image URL, text, etc.)",
+                        subject: "Share subject (optional)",
+                      );
+                    },
                     icon: const Icon(
                       Icons.share_outlined,
                       color: Colors.black,
