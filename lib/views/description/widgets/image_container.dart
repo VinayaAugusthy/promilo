@@ -32,10 +32,8 @@ class ImageContainer extends StatelessWidget {
               );
             },
             options: CarouselOptions(
-              // pageViewKey: PageStorageKey(3),
               height: size.height / 2.3,
-              // enlargeCenterPage: true,
-              autoPlay: false,
+              autoPlay: true,
               viewportFraction: 1,
             ),
           ),
