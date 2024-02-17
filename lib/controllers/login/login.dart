@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
+import 'package:promilo/controllers/login/snackbar.dart';
 import 'package:promilo/views/home/home.dart';
 
 login(String email, String password, BuildContext context) async {
@@ -34,6 +35,7 @@ login(String email, String password, BuildContext context) async {
           ));
     } else {
       print('Invalid ID and password');
+      showSnackBar(context);
     }
   } catch (e) {
     print('Error during login:$e');
