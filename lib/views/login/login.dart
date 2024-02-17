@@ -32,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
 
- 
     emailController.addListener(_validateFields);
     passwordController.addListener(_validateFields);
   }
@@ -42,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text('promilo'),
         centerTitle: true,
       ),
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter email or mob no',
                   ),
-                  validator: (value)=>validateEmail(value!),
+                  validator: (value) => validateEmail(value!),
                   onTap: () {
                     setState(() {
                       emailTapped = true;
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter Password',
                   ),
-                  validator: (value)=>validatePassword(value!),
+                  validator: (value) => validatePassword(value!),
                   onTap: () {
                     setState(() {
                       passwordTapped = true;

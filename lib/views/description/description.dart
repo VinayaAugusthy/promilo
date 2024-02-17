@@ -20,6 +20,7 @@ class _DescriptionState extends State<Description> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text(
           'Description',
           style: TextStyle(
@@ -55,4 +56,3 @@ class _DescriptionState extends State<Description> {
     );
   }
 }
-
