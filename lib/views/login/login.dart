@@ -18,15 +18,24 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  bool isSubmitEnabled = false;
-  String _textFieldValue = '';
-  // void checkSubmitButton(String email,String pa) {
-  //     _textFieldValue = value;
-  //     isSubmitEnabled = value.isNotEmpty;
-  //   setState(() {
+  bool isLoginButtonEnabled = false;
+  bool emailTapped = false;
+  bool passwordTapped = false;
+  void _validateFields() {
+    setState(() {
+      isLoginButtonEnabled =
+          emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
+    });
+  }
 
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+
+ 
+    emailController.addListener(_validateFields);
+    passwordController.addListener(_validateFields);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter email or mob no',
                   ),
-                  validator: validateEmail(emailController.text),
+                  validator: (value)=>validateEmail(value!),
+                  onTap: () {
+                    setState(() {
+                      emailTapped = true;
+                    });
+                  },
                 ),
                 kheight(10),
                 Row(
@@ -97,7 +111,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     hintText: 'Enter Password',
                   ),
-                  validator: validatePassword(passwordController.text),
+                  validator: (value)=>validatePassword(value!),
+                  onTap: () {
+                    setState(() {
+                      passwordTapped = true;
+                    });
+                  },
                 ),
                 kheight(10),
                 Row(
@@ -116,48 +135,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 kheight(10),
-                isSubmitEnabled
-                    ? SizedBox(
-                        width: size.width,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                            ),
-                            backgroundColor: MaterialStateProperty.all(primary),
-                          ),
-                          onPressed: () {
-                            login(emailController.text.toString(),
-                                passwordController.text.toString(), context);
-                          },
-                          child: const Text(
-                            'Submit',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )
-                    : SizedBox(
-                        width: size.width,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                side: BorderSide(color: primary),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            backgroundColor:
-                                MaterialStateProperty.all(greyColor),
-                          ),
-                          onPressed: () {},
-                          child: const Text(
-                            'Submit',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                SizedBox(
+                  width: size.width,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
                         ),
                       ),
+                      backgroundColor: isLoginButtonEnabled
+                          ? MaterialStateProperty.all(primary)
+                          : MaterialStateProperty.all(Colors.blue.shade100),
+                    ),
+                    onPressed: () {
+                      isLoginButtonEnabled
+                          ? login(emailController.text.toString(),
+                              passwordController.text.toString(), context)
+                          : null;
+                    },
+                    child: const Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
                 kheight(10),
                 const Separator(),
                 kheight(20),

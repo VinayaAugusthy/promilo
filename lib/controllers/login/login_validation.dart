@@ -10,6 +10,9 @@ validateEmail(String email) {
 
 validatePassword(String password) {
   if (password.isEmpty) {
-    return null;
+    return 'Password is required';
+  } else if (password.length < 6) {
+    return 'Password must be at least 6 characters';
   }
+  return null;
 }
